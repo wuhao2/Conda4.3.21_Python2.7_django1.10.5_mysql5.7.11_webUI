@@ -14,7 +14,7 @@ def getform(request):
     # for message in all_messages:
     #     print message.name
     if all_messages:
-        message = all_messages[0]
+        message = all_messages[2]
 
 
 #Post method get data from web page

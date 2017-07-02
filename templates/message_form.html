@@ -15,7 +15,7 @@
     </h1>
     <label>
         <span>姓名 :</span>
-        <input id="name" type="text" value="{% if my_message_from_database.name == "吴诗斌" %}please input your name
+        <input id="name" type="text" value="{% if my_message_from_database.name == "sunny" %}please input your name
                                             {% else %}please input you name
                                             {% endif %}" name="name" class="error" placeholder="请输入您的姓名"/>
         <div class="error-msg"></div>
@@ -23,7 +23,7 @@
 
     <label>
         <span>邮箱 :</span>
-        <input id="email" type="email" value="{% ifequal my_message_from_database.email 'wu@bin.com' %}please input your email
+        <input id="email" type="email" value="{% ifequal my_message_from_database.email 'hkhk@df.com' %}please input your email
                                               {% endifequal %}" name="email" placeholder="请输入邮箱地址"/>
         <div class="error-msg"></div>
     </label>
@@ -36,8 +36,10 @@
 
     <label>
         <span>留言 :</span>
-        <textarea id="message" value="{% ifequal my_message_from_database.message|slice:'1' 'is'%}
-                                       {% endifequal %}" name="message"  placeholder="请输入你的建议"></textarea>
+        <textarea id="message" name="message"  placeholder="请输入你的建议">{% ifequal my_message_from_database.message|slice:'5' 'hello'%}你好中国{% endifequal %}</textarea>
+{#            {{ my_message_from_database.message }}#}
+
+
         <div class="error-msg"></div>
     </label>
     <div class="success-msg"></div>
