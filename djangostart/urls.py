@@ -1,3 +1,5 @@
+# _*_ coding=utf-8 _*_
+
 """djangostart URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +17,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from apps.message.views import getform
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^form/$', getform, name='go_form'),
+    url(r'^form_go/$', getform, name='go_form'),
+    #coresponding html page {%url 'go_form' %}
+    # using his verbor name, you can change form into form_go, but no need to change on html page
+    # it also work
+
 ]
