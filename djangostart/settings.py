@@ -13,9 +13,13 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  #get project root path
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   #get project root path
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))   #insert the apps dir into search dir
+sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))   #insert the extra_apps dir into search dir
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,10 +43,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.message'        #must register this app here
-]
 
-MIDDLEWARE = [
+    'apps.message',        #must register this app here
+    'users',
+    'courses',
+    'organization',
+    'operation',
+
+    'xadmin',
+    'crispy_forms',
+
+
+]
+AUTH_USER_MODEL = 'users.UserProfile'   #overload default User table
+
+
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -113,15 +129,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'  # django1.8 support chinese language
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'  # use time area
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
+USE_TZ = False   # use local time
 
 
 # Static files (CSS, JavaScript, Images)

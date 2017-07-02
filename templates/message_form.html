@@ -36,7 +36,8 @@
 
     <label>
         <span>留言 :</span>
-        <textarea id="message" name="message"  placeholder="请输入你的建议">{% ifequal my_message_from_database.message|slice:'5' 'hello'%}你好中国{% endifequal %}</textarea>
+        <textarea id="message" name="message"  placeholder="请输入你的建议">{% ifequal my_message_from_database.message|slice:'5' 'hello'%}你好中国
+        {% endifequal %}</textarea>
 {#            {{ my_message_from_database.message }}#}
 
 
